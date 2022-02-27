@@ -20,3 +20,24 @@ renderer.setAnimationLoop(function () {
 
     renderer.render(scene, camera);
 });
+
+// testing WebXR manager fingerprinting
+if ("xr" in navigator) {
+    console.log("WebXR is supported");
+    const session_types = ["immersive-ar", "immersive-vr", "inline"];
+    xr = navigator.xr;
+    for (const key in session_types) {
+        if (Object.hasOwnProperty.call(session_types, key)) {
+            const session_type = session_types[key];
+            if (xr.isSessionSupported(session_type)) {
+                console.log(`${session_type} supported`);
+                xr.requestSession(session_type).then((session) => {
+                    console.log(session);
+                    session.end();
+                }, (error) => {
+                    console.log(error)
+                });
+            }
+        }
+    }
+}
