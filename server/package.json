@@ -1,0 +1,29 @@
+{
+  "name": "webxr-fingerprint",
+  "version": "1.0.0",
+  "description": "A web server for fingerprinting XR devices using the WebXR API",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "watch": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ghost-pep/WebXR-Fingerprint.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ghost-pep/WebXR-Fingerprint/issues"
+  },
+  "homepage": "https://github.com/ghost-pep/WebXR-Fingerprint#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "three": "^0.138.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
