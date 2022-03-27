@@ -33,6 +33,8 @@ if ("xr" in navigator) {
                 console.log(`${session_type} supported`);
                 xr.requestSession(session_type).then((session) => {
                     console.log(session);
+                    // TODO: create fingerprint as (user visit number, webXR device data)
+                    // TODO: send fingerprint to backend
                     session.end();
                 }, (error) => {
                     console.log(error)
