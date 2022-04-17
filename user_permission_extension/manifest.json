@@ -1,0 +1,14 @@
+{
+    "name": "WebXR Popup",
+    "description": "An extension to force the WebXR API to trigger a security popup before allowing a session.",
+    "version": "1.0",
+    "manifest_version": 3,
+    "permissions": [
+        "scripting",
+        "tabs"
+    ],
+    "host_permissions": ["https://*/*"],
+    "background": {
+        "service_worker": "background.js"
+    }
+}
