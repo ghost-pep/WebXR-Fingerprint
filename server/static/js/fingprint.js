@@ -30,6 +30,13 @@ async function session_types_check(user_fingerprint) {
 function fingerprint_xr_session(xr_session, session_type, user_fingerprint) {
 	user_fingerprint[session_type] = {};
 	user_fingerprint[session_type]["num_controllers"] = xr_session.inputSources.length;
+	try {
+		user_fingerprint[session_type]["handset_id"] = xr_session[
+			Object.getOwnPropertySymbols(xr_session)[1]
+		].device.gamepads[0].id;
+	} catch (error) {
+		user_fingerprint[session_type]["handset_id"] = null;
+	}
 }
 
 async function session_types_fingerprint(user_fingerprint) {
