@@ -37,6 +37,15 @@ function fingerprint_xr_session(xr_session, session_type, user_fingerprint) {
 	} catch (error) {
 		user_fingerprint[session_type]["handset_id"] = null;
 	}
+
+
+	try {
+		user_fingerprint[session_type]["handset_has_position"]  = xr_session[
+			Object.getOwnPropertySymbols(xr_session)[1]
+		].device.gamepads[0].pose.hasPosition;
+	} catch (error) {
+		user_fingerprint[session_type]["handset_has_position"] = null;
+	}
 }
 
 async function session_types_fingerprint(user_fingerprint) {
